@@ -73,8 +73,9 @@ spec:
               mountPath: /usr/src/myapp/datasource
       volumes:
         - name: files
-          persistentVolumeClaim:
-            claimName: api-tester-2121-files
+          hostPath:
+            path: /root/k8s-local-volume/2121
+            type: DirectoryOrCreate
         - name: secret-datasource
           secret:
             secretName: api-tester-2121-postgresql
